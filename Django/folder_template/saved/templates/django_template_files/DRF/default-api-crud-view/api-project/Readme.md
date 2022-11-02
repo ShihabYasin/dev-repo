@@ -1,0 +1,1 @@
+Using DRF Creting CRUD Default API VIEW for Testing Purpose

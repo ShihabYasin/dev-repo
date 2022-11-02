@@ -1,0 +1,8 @@
+DiseaseName ControlledCount GenericCount
+diabetes 8 9
+chronic_kidney_disease 17 16
+anemia 6 7
+heart_failure 13 13
+total_patient 35
+gfr_less_than_40 1 0
+age_less_than_75 1 1

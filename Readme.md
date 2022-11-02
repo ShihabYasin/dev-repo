@@ -1,7 +1,7 @@
 ##  Folder Structure:
 
 # dev-repo
-About this  Repo: Different Development Related Meta Data , Shortcuts etc.
+About this  Repo: Different Development Related Meta Data , Shortcuts, Desktop, Codes, projects , Techs  etc.
 
 Template project + starting point of stuffs + Hacks etc.
 

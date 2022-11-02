@@ -1,0 +1,8 @@
+DiseaseName ControlledCount GenericCount
+HFrEF 0 0
+CKD 0 0
+ANEMIA 0 0
+DM 0 0
+total_patient 0
+MALE 0 0
+White 0 0
