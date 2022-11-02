@@ -1,0 +1,7 @@
+HOW to work with 2 Monitor: 
+
+1. rm -rf /etc/X11/xorg.conf
+2. BIOS Vt-d Enabling, Load Optimized default
+3. (extra) Make sure refresh rate of monitors are same
+
+Another resource: https://strayobject.medium.com/fix-displayport-monitor-not-waking-on-ubuntu-18-10-a1eced577f0a
