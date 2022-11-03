@@ -19,6 +19,7 @@ elif var == "2":
     os.system("rm -rf /etc/X11/xorg.conf")
     os.system("poweroff")
 elif var == "3":
+    os.chdir("/home/yasin/StudyProjects/dev-repo")
     os.system(f"~/StudyProjects/dev-repo/git_commit_auto_script.sh")
 else:
     print("Bye Bye !!!")
