@@ -83,6 +83,11 @@ run-etl-scripts:
 clone-some-repo-with-code:
 	# git clone https://github.com/encode/django-rest-framework
 
-
+## For Ref Learn Here: https://github.com/brobin/django-seed
+## Note: When seeding models with Foreign Keys, you need to make sure that those models are seeded first.
+## For example, if a model in app A has a foreign key to a model in app B, you must seed app B first.
+populate-db-with-fake-data:   
+	python3 manage.py seed ${app_name} --number=15 #--seeder "MyModel.my_field" "1.1.1.1"
+	
 TODO:
 	deploy case e static file handling shikha
