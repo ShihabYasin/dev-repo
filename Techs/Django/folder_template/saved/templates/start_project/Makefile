@@ -1,21 +1,29 @@
 project_name=locallibrary
-app_name=catalog
+app_name=new_test_app
 
+db_name=db.sqlite3
 port=8000
 
 start_project_path=~/StudyProjects/dev-repo/Techs/Django/folder_template/saved/templates/start_project
 
 
 start-a-new-project-with-a-new-app:
-	make -k clear-dir clear-port create-project make-static-dir create-app add-app create-super-user runserver
+	# make -k clear-dir clear-port create-project make-static-dir create-app add-default-app create-super-user runserver
 	
-
 create-super-user:
 	python3 manage.py createsuperuser
 
+
+## migrations study: https://simpleisbetterthancomplex.com/tutorial/2016/07/26/how-to-reset-migrations.html
 makemigrations:
 	python3 manage.py makemigrations
 	python3 manage.py migrate
+
+reinitialize-all-migrations:
+	find . -path "*/migrations/*.py" -not -name "__init__.py" -delete
+	find . -path "*/migrations/*.pyc"  -delete
+	rm -rf ${db_name}
+	make -k makemigrations create-super-user runserver
 
 runserver:
 	# python3 manage.py collectstatic
@@ -56,7 +64,13 @@ create-app:
 	python3 manage.py migrate
 	python3 manage.py check
 
-add-app:
+add-current-app-in-settings:
+	python3 scripts/proj_init.py --options current_app --appname ${app_name}  --projname ${project_name}
+
+add-app-model-class-in-admin:
+	python3 scripts/proj_init.py --options add-app-model-class-in-admin --appname ${app_name}  --projname ${project_name}
+
+add-default-app:
 	python3 scripts/proj_init.py --options reg_default_app --appname ${app_name}  --projname ${project_name}
 
 clear-port:
