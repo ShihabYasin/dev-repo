@@ -1,4 +1,5 @@
 project_name=locallibrary
+DJANGO_SETTINGS_MODULE=${project_name}.settings
 app_name=new_test_app
 
 db_name=db.sqlite3
@@ -31,6 +32,10 @@ runserver:
 	python3 manage.py makemigrations
 	python3 manage.py migrate
 	python3 manage.py runserver 127.0.0.1:${port}
+
+pytest:
+	pytest -v --ds=${DJANGO_SETTINGS_MODULE} --capture=no  -n 2  # --reuse-db --no-migrations # -rs  # --cov # -n 2 --capture=no 
+	# --reuse-db # --create-db # --migrations # -v # -k <search_string> # -m <marker> # --maxfail = <num> # --junitxml="result.xml"
 
 clear-dir:
 	find . ! -name 'Makefile' -type f -exec rm -f {} +
