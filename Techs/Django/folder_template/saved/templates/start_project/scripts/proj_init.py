@@ -136,6 +136,8 @@ if __name__ == '__main__':
         search_and_write_in_file(file_path=os.path.join(PROJECT_NAME, "settings.py"), search_start_str="INSTALLED_APPS = [", search_end_str="]",
                                  skip_no_of_lines=1, writeit="\n#    added apps    \n"+"    " +
                                  ',\n    '.join(f"\"{x}\"" for x in default_utility_apps) + ",\n]")
+    
+    elif run_setup_stage == 'current_app':     
         # adding my app in project
         search_and_write_in_file(file_path=os.path.join(PROJECT_NAME, "settings.py"), search_start_str="INSTALLED_APPS = [", search_end_str="]",
                                  skip_no_of_lines=1, writeit="\n#    added apps    \n"+"    " +
@@ -148,21 +150,11 @@ if __name__ == '__main__':
         # adding app urls in projects urls
         search_and_write_in_file(file_path=os.path.join(PROJECT_NAME, "urls.py"), search_start_str="urlpatterns = [", search_end_str="]",
                                  skip_no_of_lines=1, writeit=f"    path(\"\", include(\"{APP_NAME}.urls\")),\n]")
-
-    elif run_setup_stage == 'current_app':
-        print("here")
+    
+    elif run_setup_stage == 'current_app_init':     
         # adding my app in project
         search_and_write_in_file(file_path=os.path.join(PROJECT_NAME, "settings.py"), search_start_str="INSTALLED_APPS = [", search_end_str="]",
                                  skip_no_of_lines=1, writeit="\n#    added apps    \n"+"    " +
-                                 ',\n    '.join(f"\"{x}\"" for x in [APP_NAME]) + ",\n]")
-
-        # adding include() in proj urls
-        search_and_write_in_file(file_path=os.path.join(PROJECT_NAME, "urls.py"), search_start_str="from django.urls import path", search_end_str="",
-                                 skip_no_of_lines=0, writeit=f"from django.urls import include")
-
-        # adding app urls in projects urls
-        search_and_write_in_file(file_path=os.path.join(PROJECT_NAME, "urls.py"), search_start_str="urlpatterns = [", search_end_str="]",
-                                 skip_no_of_lines=1, writeit=f"    path(\"\", include(\"{APP_NAME}.urls\")),\n]")
-
+                                 ',\n    '.join(f"\"{x}\"" for x in [APP_NAME]) + ",\n]")       
     elif run_setup_stage == "add-app-model-class-in-admin":
         register_app_model_classes_in_admin(app_name=APP_NAME)

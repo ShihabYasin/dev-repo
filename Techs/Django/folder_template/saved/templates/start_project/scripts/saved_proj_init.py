@@ -125,7 +125,7 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     default_utility_apps = [
-        'livereload', 'django_extensions', 'rest_framework', 'corsheaders']
+        'livereload', 'django_extensions', 'rest_framework', 'corsheaders', 'django_seed']
     APP_NAME = args.appname
     PROJECT_NAME = args.projname
 

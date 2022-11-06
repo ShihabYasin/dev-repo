@@ -1,5 +1,4 @@
-project_name=locallibrary
-DJANGO_SETTINGS_MODULE=${project_name}.settings
+project_name=project_testing__auth
 app_name=new_test_app
 
 db_name=db.sqlite3
@@ -7,10 +6,22 @@ port=8000
 
 start_project_path=~/StudyProjects/dev-repo/Techs/Django/folder_template/saved/templates/start_project
 
-
-start-a-new-project-with-a-new-app:
-	# make -k clear-dir clear-port create-project make-static-dir create-app add-default-app create-super-user runserver
 	
+start-a-new-project-with-a-new-app:
+	make -k clear-dir clear-port create-project copy-debug-settings make-static-dir create-app create-super-user runserver
+	# make -k clear-dir clear-port create-project 
+	# make -k copy-debug-settings
+	# make -k make-static-dir 
+	# make -k create-app 
+	# make -k create-super-user 
+	# make -k runserver
+
+
+copy-debug-settings:
+	rm ${project_name}/settings.py
+	cp ${start_project_path}/debug.settings.py ${project_name}/settings.py
+	# python3 scripts/proj_init.py --options current_app_init --appname ${app_name}  --projname ${project_name}
+
 create-super-user:
 	python3 manage.py createsuperuser
 
@@ -27,7 +38,7 @@ reinitialize-all-migrations:
 	make -k makemigrations create-super-user runserver
 
 runserver:
-	# python3 manage.py collectstatic
+	python3 manage.py collectstatic --noinput
 	python3 manage.py check
 	python3 manage.py makemigrations
 	python3 manage.py migrate
@@ -56,18 +67,21 @@ create-app:
 	mkdir ${app_name}/templates/${app_name}
 	
 	touch ${app_name}/forms.py
-	touch ${app_name}/urls.py
-	cp -R ${start_project_path}/scripts .
+	# touch ${app_name}/urls.py
+	cp -R ${start_project_path}/scripts .  # commenting to use local changed version  not to copy from github repo
 
 	cp ${start_project_path}/home.html ${app_name}/templates/${app_name}/home.html
-	rm ${app_name}/urls.py
+	# rm ${app_name}/urls.py
 	cp ${start_project_path}/urls.py ${app_name}/urls.py
 
 	rm ${app_name}/views.py
 	cp ${start_project_path}/views.py ${app_name}/views.py
 
+	make -k add-current-app-in-settings	
+		
 	python3 manage.py migrate
 	python3 manage.py check
+
 
 add-current-app-in-settings:
 	python3 scripts/proj_init.py --options current_app --appname ${app_name}  --projname ${project_name}
@@ -93,6 +107,6 @@ clone-some-repo-with-code:
 ## For example, if a model in app A has a foreign key to a model in app B, you must seed app B first.
 populate-db-with-fake-data:   
 	python3 manage.py seed ${app_name} --number=15 #--seeder "MyModel.my_field" "1.1.1.1"
-	
+
 TODO:
 	deploy case e static file handling shikha
