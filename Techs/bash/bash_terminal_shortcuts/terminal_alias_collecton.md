@@ -11,7 +11,6 @@ alias kp='read -p "Port to Kill: "  port && sudo kill -9 $(sudo lsof -t -i:$port
 alias ts='read -p "Enter Port for dummy  server: " port && python3 -m http.server $port'
 alias g='read -p  "Search: " searchterm && google-chrome "https://www.google.com/search?q=${searchte>
 
-
 # Dummy Information
 alias dummy='echo -e "Dummy Data Store: \n Image: https://i.imgur.com/bFDWhkK.jpeg"'
 # Print all shortcuts
