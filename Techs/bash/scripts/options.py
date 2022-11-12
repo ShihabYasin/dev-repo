@@ -20,6 +20,8 @@ if var == "0":
 elif var == "1":
     os.system("reboot")
 elif var == "2":
+    # https://strayobject.medium.com/fix-displayport-monitor-not-waking-on-ubuntu-18-10-a1eced577f0a
+    os.system("xrandr -q | grep DP")
     os.system("rm -rf /etc/X11/xorg.conf")
     os.system("poweroff")
 elif var == "3":
@@ -36,3 +38,4 @@ else:
     
     
 exit (0)
+
