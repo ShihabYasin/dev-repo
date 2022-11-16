@@ -11,6 +11,7 @@ print(f"""
       2: monitor reset
       3: git commit dev-repo
       4: Get some columns from textfile rows
+      5: Start Jmeter
       
       """)
 
@@ -21,7 +22,7 @@ elif var == "1":
     os.system("reboot")
 elif var == "2":
     # https://strayobject.medium.com/fix-displayport-monitor-not-waking-on-ubuntu-18-10-a1eced577f0a
-    os.system("xrandr -q | grep DP")
+    #os.system("xrandr -q | grep DP")
     os.system("rm -rf /etc/X11/xorg.conf")
     os.system("poweroff")
 elif var == "3":
@@ -32,7 +33,8 @@ elif var == "4":
     columns = input('Which columns(start from 1) e.g: "1,2"   = ')
     file_path = input("File Path: ")
     get_columns_from_text(file_path=file_path,delimeter=delimeter,columns=columns)
-    
+elif var == "5":
+    os.system("~/Saved_Downloads/Software/apache-jmeter-5.5/bin/jmeter")
 else:
     print("Bye Bye !!!")
     
