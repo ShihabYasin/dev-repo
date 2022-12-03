@@ -1,0 +1,43 @@
+.container {
+  display: flex;
+  /* flex-direction: column; */
+  /* justify-content: start; */
+  align-items: flex-start;
+  /* height: 600px; */
+  flex-wrap: wrap;
+  /* align-items: flex-start; */
+  /* gap: 2px; */
+
+}
+
+/* .item-1 { */
+    /* flex-grow: 1; */
+    /* flex-shrink: 5; */
+    /* flex-basis: 0; */
+    /* flex: 1 1 auto;
+    align-self: center; */
+/* } */
+
+.item {
+  background-color: #87a8f4;
+  border-style: solid;
+  border-width: thin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  width: 100px;
+  /* margin: 10px; */
+  border-style: solid;
+  border-color: red;
+  border-width: 3px;
+}
+
+
+/* For Main Div Where to Put all practiced stuffs */
+.example {
+    background-color: #5cdda9;
+    border-style: solid;
+    border-width: medium;
+    margin: 10px;
+  }

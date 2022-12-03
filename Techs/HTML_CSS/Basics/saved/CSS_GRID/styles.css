@@ -1,0 +1,26 @@
+.container {
+  display: grid;
+  grid-template-rows: repeat(2, 100px);
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  justify-content: center;
+  justify-self: stretch;
+}
+
+.item {
+  background-color: #87a8f4;
+  border-style: solid;
+  border-width: thin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* margin: 10px; */
+}
+
+
+/* For Main Div Where to Put all practiced stuffs */
+.example {
+    background-color: #5cdda9;
+    border-style: solid;
+    border-width: medium;
+    margin: 10px;
+  }
