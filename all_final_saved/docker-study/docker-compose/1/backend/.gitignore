@@ -1,0 +1,27 @@
+# Logs
+*.log
+nohup.out
+
+# Python cache directories
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Flask instance directories
+instance/
+
+# SQLite database file
+app.db
+
+# Flask environment file
+.flaskenv
+
+# Flask secret key file
+secret_key.py
+
+# Flask debug toolbar files
+debug_toolbar/
+
+# Flask WTF CSRF protection
+csrf_token.html
