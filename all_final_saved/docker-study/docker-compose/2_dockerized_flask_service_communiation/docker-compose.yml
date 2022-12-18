@@ -1,0 +1,44 @@
+version: '3'
+services:
+  up:
+    build:
+      context: ./up
+    ports:
+      - "7100:7100"
+    volumes:
+      - ./up:/app
+    depends_on:
+      - collect
+    networks:
+      - app_network
+
+  collect:
+    build:
+      context: ./collect
+    volumes:
+      - ./collect:/app
+    depends_on:
+      - day_provider
+      - month_provider
+    networks:
+      - app_network
+
+  day_provider:
+    build:
+      context: ./day_provider
+    volumes:
+      - ./day_provider:/app
+    networks:
+      - app_network
+
+  month_provider:
+    build:
+      context: ./month_provider
+    volumes:
+      - ./month_provider:/app
+    networks:
+      - app_network
+
+
+networks:
+  app_network:
