@@ -1,7 +1,7 @@
 .PHONY: clean build run stop inspect
 
-IMAGE_NAME = yasin/alpine-python3-flask
-CONTAINER_NAME = flask-demoapp
+IMAGE_NAME=yasin/alpine-python3-flask
+CONTAINER_NAME=flask-demoapp
 PORT=8000
 
 build:
@@ -46,10 +46,8 @@ clean:
 	sudo docker ps -a | grep '$(CONTAINER_NAME)' | awk '{print $$1}' | xargs docker rm \
 	sudo docker images | grep '$(IMAGE_NAME)' | awk '{print $$3}' | xargs docker rmi
 
-clean_all:
-	#clean all unsuccessful build image and stopped container
-	sudo docker rm  `sudo docker ps -a -f status=exited -q`
- 	sudo docker rmi `sudo docker images -q -f dangling=true`
+clean_all_unused:
+	sudo docker rm  `sudo docker ps -a -f status=exited -q` ; sudo docker rmi `sudo docker images -q -f dangling=true` ;
 
 list:
 	# list all docker image and container
@@ -57,3 +55,6 @@ list:
 
 clear_port:
 	sudo kill -9 $(sudo lsof -t -i:$(PORT))
+
+zip-project:
+	zip -r model_1_and_2_it_legal_.zip ./  -x  ./__pycache__**\*   -x  ./model_1/__pycache__**\*  ./tests**\*

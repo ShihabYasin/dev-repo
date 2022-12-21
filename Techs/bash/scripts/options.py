@@ -3,7 +3,7 @@ from myutility import get_columns_from_text
 
 ################################################################
 
-script_path = "~/StudyProjects/dev-repo"
+dev_repo = "/media/yasin/MyStudy/dev-repo"
 
 print(f"""
       0: shut down
@@ -26,8 +26,8 @@ elif var == "2":
     os.system("rm -rf /etc/X11/xorg.conf")
     os.system("poweroff")
 elif var == "3":
-    os.chdir("/home/yasin/StudyProjects/dev-repo")
-    os.system(f"~/StudyProjects/dev-repo/git_commit_auto_script.sh")
+    # os.chdir(f"""{dev_repo}""")
+    os.system(f"""{dev_repo}/git_commit_auto_script.sh""")
 elif var == "4":    
     delimeter = input("Delimeter e.g: ',' = ")
     columns = input('Which columns(start from 1) e.g: "1,2"   = ')
