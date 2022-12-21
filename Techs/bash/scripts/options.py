@@ -26,8 +26,8 @@ elif var == "2":
     os.system("rm -rf /etc/X11/xorg.conf")
     os.system("poweroff")
 elif var == "3":
-    # os.chdir(f"""{dev_repo}""")
-    os.system(f"""{dev_repo}/git_commit_auto_script.sh""")
+    os.chdir(f"""{dev_repo}""")
+    os.system(f"""./git_commit_auto_script.sh""")
 elif var == "4":    
     delimeter = input("Delimeter e.g: ',' = ")
     columns = input('Which columns(start from 1) e.g: "1,2"   = ')
