@@ -1,10 +1,12 @@
-# MongoDB run from docker container
+# Kafka run from docker container
 
 zookeeper_container="zookeeper"
 kafka_container="kafka"
 
 zookeeper_port=2181
 kafka_port=9092
+
+host=localhost
 
 
 run:
@@ -14,7 +16,7 @@ verify-run:
 kafka-shell-access:
 	sudo docker exec -it kafka /bin/sh
 
-stop-mongodb-container:
+stop-kafka-containers:
 	sudo docker stop $(zookeeper_container)
 	sudo docker stop $(kafka_container)
 	sudo docker rm  `sudo docker ps -a -f status=exited -q`
