@@ -1,0 +1,3 @@
+https://github.com/cristaloleg/docker-compose-collection
+https://github.com/yeasy/docker-compose-files
+https://github.com/jonatan-ivanov/local-services

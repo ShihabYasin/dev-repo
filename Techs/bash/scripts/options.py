@@ -3,7 +3,7 @@ from myutility import get_columns_from_text
 
 ################################################################
 
-dev_repo = "/media/yasin/MyStudy/dev-repo"
+root = "/media/yasin/MyStudy"
 
 print(f"""
       0: shut down
@@ -12,6 +12,7 @@ print(f"""
       3: git commit dev-repo
       4: Get some columns from textfile rows
       5: Start Jmeter
+      6: Setup npm starter template
       
       """)
 
@@ -26,7 +27,7 @@ elif var == "2":
     os.system("rm -rf /etc/X11/xorg.conf")
     os.system("poweroff")
 elif var == "3":
-    os.chdir(f"""{dev_repo}""")
+    os.chdir(f"""{root}/dev-repo""")
     os.system(f"""./git_commit_auto_script.sh""")
 elif var == "4":    
     delimeter = input("Delimeter e.g: ',' = ")
@@ -34,7 +35,9 @@ elif var == "4":
     file_path = input("File Path: ")
     get_columns_from_text(file_path=file_path,delimeter=delimeter,columns=columns)
 elif var == "5":
-    os.system("~/Saved_Downloads/Software/apache-jmeter-5.5/bin/jmeter")
+    os.system("/media/yasin/MyStudy/Saved_Downloads/Software/apache-jmeter-5.5/bin/jmeter")
+elif var == "6":
+    os.system(f"""npm init -y ; npm link {root}/dev-repo/Techs/NodeJS/common-setup ; npm install """)
 else:
     print("Bye Bye !!!")
     
