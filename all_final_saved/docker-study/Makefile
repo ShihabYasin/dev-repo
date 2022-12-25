@@ -58,3 +58,9 @@ clear_port:
 
 zip-project:
 	zip -r model_1_and_2_it_legal_.zip ./  -x  ./__pycache__**\*   -x  ./model_1/__pycache__**\*  ./tests**\*
+
+
+stop_all_docker_container:
+	sudo docker kill `sudo docker ps -q`
+remove_all_docker_container:
+	sudo docker rm `sudo docker ps -q`

@@ -12,7 +12,7 @@ print(f"""
       3: git commit dev-repo
       4: Get some columns from textfile rows
       5: Start Jmeter
-      6: Setup npm starter template
+      6: Docker Option
       
       """)
 
@@ -29,18 +29,53 @@ elif var == "2":
 elif var == "3":
     os.chdir(f"""{root}/dev-repo""")
     os.system(f"""./git_commit_auto_script.sh""")
-elif var == "4":    
+elif var == "4":
     delimeter = input("Delimeter e.g: ',' = ")
     columns = input('Which columns(start from 1) e.g: "1,2"   = ')
-    file_path = input("File Path: ")
-    get_columns_from_text(file_path=file_path,delimeter=delimeter,columns=columns)
+    file_path = input("File Name (from current dir) : ")
+    file_path = os.path.join( os.getcwd(),file_path)
+    get_columns_from_text(file_path=file_path,
+                          delimeter=delimeter, columns=columns)
 elif var == "5":
-    os.system("/media/yasin/MyStudy/Saved_Downloads/Software/apache-jmeter-5.5/bin/jmeter")
+    os.system(
+        "/media/yasin/MyStudy/Saved_Downloads/Software/apache-jmeter-5.5/bin/jmeter")
 elif var == "6":
-    os.system(f"""npm init -y ; npm link {root}/dev-repo/Techs/NodeJS/common-setup ; npm install """)
+    os.system(f"""Docker Options:\n""")
+    print(f"""
+      0: Show Docker List
+      1: Clean all unused Docker stuffs
+      2: docker compose up
+      3: docker compose down
+      4: stop_all_docker_container
+      5: remove_all_docker_container
+      6: give image name/id to remove
+      """)
+
+    var_docker = input("Docker Action: ")
+    if var_docker == "0":
+        os.system("sudo docker image ls ; sudo docker container ls ;")
+    elif var_docker == "1":
+        os.system("	sudo docker rm  `sudo docker ps -a -f status=exited -q` ; sudo docker rmi `sudo docker images -q -f dangling=true` ;")
+    elif var_docker == "2":
+        os.system("sudo docker-compose up")
+    elif var_docker == "3":
+        os.system("sudo docker-compose down")
+    elif var_docker == "4":
+        os.system("sudo docker kill `sudo docker ps -q`")
+    elif var_docker == "5":
+        os.system("sudo docker rm `sudo docker ps -q`")
+    elif var_docker == "6":
+        os.system("read -p 'Docker Images to remove: ' -r imls && sudo docker rmi -f  $imls")
+    
+    else:
+        print("done ...")
+
 else:
     print("Bye Bye !!!")
-    
-    
-exit (0)
 
+exit(0)
+
+
+# alias dls='sudo docker image ls ; sudo docker container ls ;'
+# alias sd='sudo docker '
+# alias drm='sudo docker system prune'
