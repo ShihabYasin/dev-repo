@@ -15,6 +15,7 @@ print(f"""
       6: Docker Option
       7: RUn Kafka & Kafdrop GUI
       8: Run COCO Annotator
+      9: Run Selenium
       
       """)
 
