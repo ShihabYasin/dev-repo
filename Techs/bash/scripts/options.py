@@ -13,6 +13,8 @@ print(f"""
       4: Get some columns from textfile rows
       5: Start Jmeter
       6: Docker Option
+      7: RUn Kafka & Kafdrop GUI
+      8: Run COCO Annotator
       
       """)
 
@@ -69,13 +71,31 @@ elif var == "6":
     
     else:
         print("done ...")
-
+elif var == "7":
+    print(f"""
+          0: Kafka UP
+          1: Kafka DOWN
+          """)
+    var_docker = input("Kafka Action: ")
+    if var_docker == "0":
+        os.system(
+            f'''cd "{root}/dev-repo/all_final_saved/Run_AS_Docker/Kafka/RUN_USING_GUI_CLIENT/Kafdrop"; make -f Makefile up''')
+    elif var_docker == "1":
+        os.system(
+            f'''cd "{root}/dev-repo/all_final_saved/Run_AS_Docker/Kafka/RUN_USING_GUI_CLIENT/Kafdrop"; make -f Makefile down''')
+elif var == "8":
+    print(f"""
+              0: COCO UP
+              1: COCO DOWN
+              """)
+    var_coco = input("COCO Action: ")
+    if var_coco == "0":
+        os.system(f'''cd {root}/Saved_Downloads/Software/coco-annotator ;  make -f Makefile up''')
+    elif var_coco == "1":
+        os.system(f'''cd {root}/Saved_Downloads/Software/coco-annotator ;  make -f Makefile down''')
 else:
     print("Bye Bye !!!")
 
 exit(0)
 
 
-# alias dls='sudo docker image ls ; sudo docker container ls ;'
-# alias sd='sudo docker '
-# alias drm='sudo docker system prune'
