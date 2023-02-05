@@ -19,7 +19,7 @@ alias myhelp='type sd; type dls; type drm; type p; type kp; type ts; type g; typ
 ## short-cut program
 alias op='python3 /media/yasin/MyStudy/dev-repo/Techs/bash/scripts/options.py'
 
-alias h='echo Huggingface Token:   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'
+alias h='echo Huggingface Token:   h**********M'
 source /etc/profile.d/bash_completion.sh
 
 
