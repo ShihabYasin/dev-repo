@@ -1,16 +1,22 @@
 version: '3.1'
 
 services:
-  db:
+  mysqldb:
     image: mysql
+    container_name: mysql-container
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: A1@hjuikl
+    volumes:
+      - /media/yasin/MyStudy/docker-volumes/mysqldb:/var/lib/mysql
 
   phpmyadmin:
     image: phpmyadmin
+    links:
+      - mysqldb:db
+    container_name: phpmyadmin-container
     restart: always
     ports:
-      - 8080:80
+      - 8081:80
     environment:
       - PMA_ARBITRARY=1

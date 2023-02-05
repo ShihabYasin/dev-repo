@@ -13,9 +13,9 @@ print(f"""
       4: Get some columns from textfile rows
       5: Start Jmeter
       6: Docker Option
-      7: RUn Kafka & Kafdrop GUI
+      7: Run Kafka & Kafdrop GUI
       8: Run COCO Annotator
-      9: Run Selenium
+      9: Run MySql + PhPMyAdmin
       
       """)
 
@@ -94,6 +94,22 @@ elif var == "8":
         os.system(f'''cd {root}/Saved_Downloads/Software/coco-annotator ;  make -f Makefile up''')
     elif var_coco == "1":
         os.system(f'''cd {root}/Saved_Downloads/Software/coco-annotator ;  make -f Makefile down''')
+elif var == "9":
+    print(f"""
+              0: MySQL + PhPMyAdmin UP
+              1: MySQL + PhPMyAdmin DOWN
+              """)
+    var_mysql = input("COCO Action: ")
+    if var_mysql == "0":
+        os.system(f'''cd {root}/dev-repo/all_final_saved/Run_AS_Docker/mysql ;  make -f Makefile up''')
+    elif var_mysql == "1":
+        os.system(f'''cd {root}/dev-repo/all_final_saved/Run_AS_Docker/mysql ;  make -f Makefile down''')
+
+
+
+
+
+
 else:
     print("Bye Bye !!!")
 
