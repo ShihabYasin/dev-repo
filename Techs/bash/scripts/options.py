@@ -27,6 +27,9 @@ elif var == "1":
 elif var == "2":
     # https://strayobject.medium.com/fix-displayport-monitor-not-waking-on-ubuntu-18-10-a1eced577f0a
     #os.system("xrandr -q | grep DP")
+    # enable BIOS Vt-d capability (Press DEL button on startup)
+    # give this command to check driver "sudo lspci" and "sudo lshw -c video" . This solves the problem once.
+
     os.system("rm -rf /etc/X11/xorg.conf")
     os.system("poweroff")
 elif var == "3":
